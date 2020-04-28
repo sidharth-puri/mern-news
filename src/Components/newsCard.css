@@ -1,0 +1,23 @@
+.divshape
+{
+border-style: groove;
+border-width: medium;
+width:700px;
+margin: auto;
+text-align: center;
+/* border-color: black; */
+}
+.image
+{
+    border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 500px;
+  text-align: center;
+}
+.kau
+{
+    color:black;
+    font-size:20px;
+    text-align: center;
+}

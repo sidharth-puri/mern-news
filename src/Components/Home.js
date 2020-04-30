@@ -1,4 +1,4 @@
-import React from "react";
+/*import React from "react";
 
 export default class Home extends React.Component {
  
@@ -11,10 +11,10 @@ export default class Home extends React.Component {
     );
   }
 }
-
-/*import React from "react";
+*/
+import React from "react";
 import axios from "axios";
-import NewsCards from "./newsCards";
+import NewsCards from "./homenewsCards";
 
 export default class Home extends React.Component {
   state = {
@@ -56,4 +56,4 @@ export default class Home extends React.Component {
       </div>
     );
   }
-}*/
+}

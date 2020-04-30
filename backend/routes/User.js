@@ -76,6 +76,12 @@ userRouter.get('/todos',passport.authenticate('jwt',{session : false}),(req,res)
     });
 });
 
+userRouter.route('/todo/:id').delete((req, res) => {
+    console.log("deleted");
+    Todo.findByIdAndDelete(req.params.id)
+      .then(() => res.json('news deleted.'))
+      .catch(err => res.status(400).json('Error: ' + err));
+  });
 userRouter.get('/admin',passport.authenticate('jwt',{session : false}),(req,res)=>{
     if(req.user.role === 'admin'){
         res.status(200).json({message : {msgBody : 'You are an admin', msgError : false}});

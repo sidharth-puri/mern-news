@@ -1,6 +1,7 @@
 import React, {useState,useContext,useEffect} from 'react';
 import TodoService from '../Services/TodoService';
 import TodoItem from './TodoItem';
+import axios from 'axios';
 export default class Saved extends React.Component {
     constructor(props) {
         super(props)
@@ -8,6 +9,15 @@ export default class Saved extends React.Component {
             todos:[]
         }
         this.handleClick = this.handleClick.bind(this);
+        this.handle = this.handle.bind(this);
+    }
+    handle(ele){
+        console.log(ele._id);
+        axios.delete('/user/todo/'+ele._id)
+      .then(response => { console.log(response.data)});
+      this.setState({
+        todos: this.state.todos.filter(el => el._id !== ele._id)
+      })
     }
     handleClick() {
   
@@ -22,14 +32,14 @@ export default class Saved extends React.Component {
    
     render() {
         return (
-           // <div><h1>Saved!</h1></div>
             
             <div>
                 <button onClick={this.handleClick}>Get Articles</button>
                  <ul>
                 {
                     this.state.todos.map(todo =>{
-                        return <TodoItem key={todo._id} todo={todo}/>
+                        return(<div><TodoItem key={todo._id} todo={todo}/>
+                        <button onClick={()=> this.handle(todo)}>delete</button></div>)
                     })
                 }
             </ul>
